@@ -5,6 +5,7 @@ import com.sparta.admin.dto.SignupRequestDto;
 import com.sparta.admin.dto.SignupResponseDto;
 import com.sparta.admin.service.AdminService;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class AdminController {
     }
 
     @PostMapping("/admins")
-    public SignupResponseDto signup(@RequestBody SignupRequestDto signupRequestDto){
+    public SignupResponseDto signup(@Valid  @RequestBody SignupRequestDto signupRequestDto){
         return adminService.signup(signupRequestDto);
     }
 
